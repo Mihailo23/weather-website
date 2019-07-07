@@ -24,19 +24,19 @@ app.use(express.static(publicDirectoryPath))
 // Routes
 app.get('', (req, res) => {
   res.render('index', {
-    title: 'Weather',
+    title: 'Vremenska prognoza',
     name: 'Mihailo'
   })
 })
 app.get('/about', (req, res) => {
   res.render('about', {
-    title: 'About Page',
+    title: 'O nama',
     name: 'Mihailo'
   })
 })
 app.get('/help', (req, res) => {
   res.render('help', {
-    title: 'Help Page',
+    title: 'Pomoc?',
     name: 'Mihailo'
   })
 })
@@ -44,7 +44,7 @@ app.get('/help', (req, res) => {
 app.get('/weather', (req, res) => {
   if (!req.query.address) {
     return res.send({
-      error: 'You must provide an address!'
+      error: 'Morate uneti adresu!'
     })
   }
 
@@ -74,7 +74,7 @@ app.get('/weather', (req, res) => {
 
 app.get('/help/*', (req, res) => {
   res.render('404', {
-    title: '404 Help',
+    title: 'Stranica nije pronadjena',
     name: 'Mihailo',
     errorMessage: 'Help Article Not Found',
   })
@@ -82,7 +82,7 @@ app.get('/help/*', (req, res) => {
 
 app.get('*', (req, res) => {
   res.render('404', {
-    title: '404',
+    title: 'Stranica nije pronadjena',
     name: 'Mihailo',
     errorMessage: 'Page Not Found',
   })
